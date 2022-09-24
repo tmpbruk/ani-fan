@@ -1,0 +1,25 @@
+/* FUNCIONAMENTO **************  */
+
+[data-semana]::after{
+  content: "";
+  display: inline-block;
+  margin-left: 4px;
+  align-self: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: red;
+  box-shadow: 0 1px 4px 0 #333;
+}
+
+[data-semana].aberto::after{
+  content: "";
+  display: inline-block;
+  margin-left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3f4;
+  box-shadow: 0 1px 4px 0 #333;
+}
+
