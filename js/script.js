@@ -1,5 +1,5 @@
 import initTabMenu from "./modules/tab-menu.js";
-import initSmoothScroll from "./modules/smooth-scroll.js";
+import SmoothScroll from "./modules/smooth-scroll.js";
 import initAnimationScroll from "./modules/scroll-animation.js";
 import initAccordionList from "./modules/accordion-list.js";
 import initModal from "./modules/modal.js";
@@ -11,7 +11,12 @@ import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 
 initTabMenu();
-initSmoothScroll();
+const options = { behavior: "smooth", block: "start" };
+const smoothScroll = new SmoothScroll(
+  '[data-menu="suave"] a[href^="#"]',
+  options,
+);
+smoothScroll.init();
 initAnimationScroll();
 initAccordionList();
 initModal();
