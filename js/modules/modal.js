@@ -1,20 +1,37 @@
-export default function initModal() {
-  const modal = document.querySelector('[data-modal="container"]');
-  const fecharModal = document.querySelector('[data-modal="fechar"]');
-  const login = document.querySelector('[data-modal="login"]');
-
-  function togleModal(e) {
-    e.preventDefault();
-    modal.classList.toggle("ativo");
+export default class Modal {
+  constructor(botaoAbrir, botaoFechar, modalContainer) {
+    this.botaoAbrir = document.querySelector(botaoAbrir);
+    this.botaoFechar = document.querySelector(botaoFechar);
+    this.modalContainer = document.querySelector(modalContainer);
   }
-  function handleClickOutsideModal(e) {
-    if (e.target === this) {
-      togleModal(e);
+
+  togleModal(e) {
+    e.preventDefault();
+    this.modalContainer.classList.toggle("ativo");
+  }
+  handleClickOutsideModal(e) {
+    if (e.target === this.modalContainer) {
+      this.togleModal(e);
+    } else {
+      console.log("dif");
     }
   }
-  if (modal && fecharModal && login) {
-    login.addEventListener("click", togleModal);
-    fecharModal.addEventListener("click", togleModal);
-    modal.addEventListener("click", handleClickOutsideModal);
+  addModalEvent() {
+    this.botaoAbrir.addEventListener("click", (e) => {
+      console.log(e.target);
+      this.togleModal(e);
+    });
+    this.botaoFechar.addEventListener("click", (e) => {
+      this.togleModal(e);
+    });
+    this.modalContainer.addEventListener("click", (e) => {
+      this.handleClickOutsideModal(e);
+    });
+  }
+
+  init() {
+    if (this.botaoAbrir && this.botaoFechar && this.modalContainer) {
+      this.addModalEvent();
+    }
   }
 }
