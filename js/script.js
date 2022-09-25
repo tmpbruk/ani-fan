@@ -1,4 +1,4 @@
-import initTabMenu from "./modules/tab-menu.js";
+import addTabNavEvent from "./modules/tab-nav.js";
 import SmoothScroll from "./modules/smooth-scroll.js";
 import AccordionList from "./modules/accordion-list.js";
 import initModal from "./modules/modal.js";
@@ -10,7 +10,6 @@ import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
 import initAnimationScroll from "./modules/scroll-animation.js";
 
-initTabMenu();
 const options = { behavior: "smooth", block: "start" };
 const smoothScroll = new SmoothScroll(
   '[data-menu="suave"] a[href^="#"]',
@@ -19,6 +18,11 @@ const smoothScroll = new SmoothScroll(
 smoothScroll.init();
 const accordionList = new AccordionList('[data-anime="accordion"] dt');
 accordionList.init();
+const tabMenu = new addTabNavEvent(
+  '[data-tab="menu"] li',
+  '[data-tab="content"] section',
+);
+tabMenu.init();
 initModal();
 initTooltip();
 initDropdownMenu();
