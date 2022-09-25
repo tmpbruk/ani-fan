@@ -1,7 +1,6 @@
 import initTabMenu from "./modules/tab-menu.js";
 import SmoothScroll from "./modules/smooth-scroll.js";
-import initAnimationScroll from "./modules/scroll-animation.js";
-import initAccordionList from "./modules/accordion-list.js";
+import AccordionList from "./modules/accordion-list.js";
 import initModal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
@@ -9,6 +8,7 @@ import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetchBitcoin from "./modules/fetch-bitcoin.js";
+import initAnimationScroll from "./modules/scroll-animation.js";
 
 initTabMenu();
 const options = { behavior: "smooth", block: "start" };
@@ -17,8 +17,8 @@ const smoothScroll = new SmoothScroll(
   options,
 );
 smoothScroll.init();
-initAnimationScroll();
-initAccordionList();
+const accordionList = new AccordionList('[data-anime="accordion"] dt');
+accordionList.init();
 initModal();
 initTooltip();
 initDropdownMenu();
@@ -26,6 +26,7 @@ initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
 initFetchBitcoin();
+initAnimationScroll();
 
 // // setTimeout and setInterval start ********************
 
