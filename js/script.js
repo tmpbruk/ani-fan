@@ -16,19 +16,23 @@ const smoothScroll = new SmoothScroll(
   options,
 );
 smoothScroll.init();
+
 const accordionList = new AccordionList('[data-anime="accordion"] dt');
 accordionList.init();
+
 const tabMenu = new TabNav(
   '[data-tab="menu"] li',
   '[data-tab="content"] section',
 );
 tabMenu.init();
+
 const modal = new Modal(
   '[data-modal="abrir"]',
   '[data-modal="fechar"]',
   '[data-modal="container"]',
 );
 modal.init();
+
 initTooltip();
 initDropdownMenu();
 initMenuMobile();
