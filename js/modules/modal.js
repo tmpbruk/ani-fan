@@ -3,35 +3,36 @@ export default class Modal {
     this.botaoAbrir = document.querySelector(botaoAbrir);
     this.botaoFechar = document.querySelector(botaoFechar);
     this.modalContainer = document.querySelector(modalContainer);
+
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.handleClickOutsideModal = this.handleClickOutsideModal.bind(this);
   }
 
-  togleModal(e) {
-    e.preventDefault();
+  toggleModal() {
     this.modalContainer.classList.toggle("ativo");
+  }
+
+  eventToggleModal(e) {
+    e.preventDefault();
+    this.toggleModal();
   }
   handleClickOutsideModal(e) {
     if (e.target === this.modalContainer) {
-      this.togleModal(e);
+      this.toggleModal(e);
     } else {
       console.log("dif");
     }
   }
   addModalEvent() {
-    this.botaoAbrir.addEventListener("click", (e) => {
-      console.log(e.target);
-      this.togleModal(e);
-    });
-    this.botaoFechar.addEventListener("click", (e) => {
-      this.togleModal(e);
-    });
-    this.modalContainer.addEventListener("click", (e) => {
-      this.handleClickOutsideModal(e);
-    });
+    this.botaoAbrir.addEventListener("click", this.eventToggleModal);
+    this.botaoFechar.addEventListener("click", this.eventToggleModal);
+    this.modalContainer.addEventListener("click", this.handleClickOutsideModal);
   }
 
   init() {
     if (this.botaoAbrir && this.botaoFechar && this.modalContainer) {
       this.addModalEvent();
     }
+    return this;
   }
 }
