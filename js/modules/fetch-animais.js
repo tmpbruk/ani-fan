@@ -1,4 +1,4 @@
-import initNumberAnimation from "./number-animation.js";
+import NumberAnimation from "./number-animation.js";
 
 // FETCH ANIMAIS ***************************
 
@@ -18,7 +18,12 @@ export default function initFetchAnimais() {
       animaisJson.forEach((animal) => {
         createAnimal(animal);
       });
-      initNumberAnimation();
+      const numberAnimation = new NumberAnimation(
+        "[data-numero]",
+        ".numeros",
+        "ativo",
+      );
+      numberAnimation.init();
     } catch (error) {
       console.log(`Um error ocorreu: ${error}`);
     }
