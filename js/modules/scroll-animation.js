@@ -1,12 +1,12 @@
 // SCROLL ANIMATION ********************************************
-
+import debounce from "./debounce.js";
 export default class AnimationScroll {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections);
     this.halfScreen = window.innerHeight * 0.6;
 
     //Bind
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 10);
   }
 
   // Get distance of each item in relation to the top of the website
