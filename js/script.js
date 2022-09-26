@@ -7,8 +7,8 @@ import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
-import initFetchBitcoin from "./modules/fetch-bitcoin.js";
-import initAnimationScroll from "./modules/scroll-animation.js";
+import fetchBitcoin from "./modules/fetch-bitcoin.js";
+import AnimationScroll from "./modules/scroll-animation.js";
 
 const options = { behavior: "smooth", block: "start" };
 const smoothScroll = new SmoothScroll(
@@ -39,8 +39,9 @@ initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
 fetchAnimais("../../animaisapi.json", ".numeros-grid");
-initFetchBitcoin();
-initAnimationScroll();
+fetchBitcoin("https://blockchain.info/ticker", ".bitcoin-preco");
+const animationScroll = new AnimationScroll('[data-anime="scroll"]');
+animationScroll.init();
 
 // // setTimeout and setInterval start ********************
 

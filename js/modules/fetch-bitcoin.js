@@ -1,11 +1,12 @@
 // FETCH BITCOIN ***************************
-function doarBitcoin(precoBitcoin) {
-  const span = document.querySelector(".bitcoin-preco");
-  const btcReal = precoBitcoin / 10000;
-  span.innerText = `${1 / 10000} BTC = ${btcReal.toFixed(4)} Reais.`;
-}
 
-export default function initFetchBitcoin() {
+export default function fetchBitcoin(url, target) {
+  function doarBitcoin(precoBitcoin) {
+    const span = document.querySelector(target);
+    const btcReal = precoBitcoin / 10000;
+    span.innerText = `${1 / 10000} BTC = ${btcReal.toFixed(4)} reais.`;
+  }
+
   async function fetchBitcoin(url) {
     try {
       const bitcoinResponse = await fetch(url);
@@ -16,5 +17,5 @@ export default function initFetchBitcoin() {
     }
   }
 
-  fetchBitcoin("https://blockchain.info/ticker");
+  fetchBitcoin(url);
 }
