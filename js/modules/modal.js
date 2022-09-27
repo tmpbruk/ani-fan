@@ -19,8 +19,6 @@ export default class Modal {
   handleClickOutsideModal(e) {
     if (e.target === this.modalContainer) {
       this.toggleModal(e);
-    } else {
-      console.log("dif");
     }
   }
   addModalEvent() {
